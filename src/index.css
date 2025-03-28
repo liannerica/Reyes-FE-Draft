@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 345 95% 4%; /* #110407 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 345 95% 4%; /* #110407 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 345 95% 4%; /* #110407 */
+
+    --primary: 33 25% 53%; /* #AA8F66 */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+
+    --secondary: 13 29% 27%; /* #5A3A31 */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+
+    --muted: 33 25% 53%; /* #AA8F66 */
+    --muted-foreground: 345 95% 4%; /* Dark text for better visibility */
+
+    --accent: 13 29% 27%; /* #5A3A31 */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    --border: 33 25% 53%; /* #AA8F66 */
+    --input: 33 25% 53%; /* #AA8F66 */
+    --ring: 13 29% 27%; /* #5A3A31 */
+
+    --radius: 0.5rem;
+
+    /* Custom colors for cards */
+    --sales-card-start: 33 25% 53%; /* #AA8F66 */
+    --sales-card-end: 13 29% 27%; /* #5A3A31 */
+
+    --orders-card-start: 13 29% 27%; /* #5A3A31 */
+    --orders-card-end: 345 95% 4%; /* #110407 */
+
+    --visitors-card-start: 33 25% 53%; /* #AA8F66 */
+    --visitors-card-end: 345 95% 4%; /* #110407 */
+    
+    /* Sidebar variables from second file */
+    --sidebar-background: 0 0% 100%; /* #FFFFFF */
+    --sidebar-foreground: 13 29% 27%; /* #5A3A31 - Darker for better visibility */
+    --sidebar-primary: 13 29% 27%; /* #5A3A31 */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 33 25% 53%; /* #AA8F66 */
+    --sidebar-accent-foreground: 0 0% 0%; /* Black text on accent for contrast */
+    --sidebar-border: 33 25% 53%; /* #AA8F66 */
+    --sidebar-ring: 13 29% 27%; /* #5A3A31 */
+
+    /* Custom colors for admin panels */
+    --admin-text-muted: 345 30% 15%; /* Darker muted text for admin panels */
+  }
+
+  .dark {
+    --background: 345 95% 4%; /* #110407 */
+    --foreground: 0 0% 100%;
+
+    --card: 345 95% 7%; /* Slightly lighter than #110407 */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 345 95% 7%; /* Slightly lighter than #110407 */
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 33 25% 53%; /* #AA8F66 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 13 29% 27%; /* #5A3A31 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 13 29% 20%; /* Darker variant of #5A3A31 */
+    --muted-foreground: 0 0% 85%; /* Lighter for better contrast */
+
+    --accent: 33 25% 53%; /* #AA8F66 */
+    --accent-foreground: 0 0% 0%; /* Black for better contrast */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 69% 29%;
+    --success-foreground: 0 0% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 98%;
+
+    --warning: 35 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --border: 13 29% 27%; /* #5A3A31 */
+    --input: 13 29% 27%; /* #5A3A31 */
+    --ring: 33 25% 53%; /* #AA8F66 */
+    
+    /* Custom colors for admin panels */
+    --admin-text-muted: 0 0% 75%; /* Lighter muted text for admin panels in dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight font-medium;
+  }
+  
+  a {
+    @apply outline-none;
+  }
+  
+  button, input, select, textarea {
+    @apply focus:outline-none focus:ring-accent focus:ring-offset-1 focus:ring-1;
+  }
+  
+  .bg-admin {
+    background-color: #ec4899; /* Pink */
+    color: white;
+  }
+  .bg-seller {
+    background-color: #fbbf24; /* Yellow */
+    color: white;
+  }
+  .bg-buyer {
+    background-color: #3b82f6; /* Blue */
+    color: white;
+  }
+  .bg-active {
+    background-color: #10b981; /* Green */
+    color: white;
+  }
+  .bg-approve {
+    background-color: #10b981; /* Green */
+    color: white;
+  }
+  .bg-pending {
+    background-color: #f97316; /* Orange */
+    color: white;
+  }
+  .bg-rejected {
+    background-color: #ef4444; /* Red */
+    color: white;
+  }
+  .bg-inactive {
+    background-color: #ef4444; /* Red */
+    color: white;
+  }
+  .bg-main {
+    background-color: rgb(68, 50, 8);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-gallery-beige/30 shadow-glass rounded-lg;
+  }
+  
+  .nav-link {
+    @apply relative px-2 py-1 text-gallery-text transition-all duration-300 hover:text-gallery-cream after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-gallery-cream after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .art-item-card {
+    @apply relative overflow-hidden rounded-md bg-white p-4 shadow-subtle transition-all duration-300 hover:shadow-glass hover:-translate-y-1;
+  }
+  
+  .chat-message {
+    @apply rounded-lg p-3 max-w-[80%] animate-slide-up;
+  }
+  
+  .chat-message-user {
+    @apply bg-gallery-cream text-white ml-auto;
+  }
+  
+  .chat-message-other {
+    @apply bg-gallery-bg text-gallery-text border border-gallery-border;
+  }
+  
+  .search-overlay {
+    @apply fixed inset-0 bg-black/10 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+  
+  .search-container {
+    @apply w-full max-w-2xl bg-gallery-bg rounded-xl shadow-glass overflow-hidden border border-gallery-border;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.3s ease-in-out;
+  }
+
+  .slide-in-from-right {
+    animation: slideInFromRight 0.3s ease-in-out;
+  }
+
+  .slide-in-from-left {
+    animation: slideInFromLeft 0.3s ease-in-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom scrollbar from first file */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0F0F0; /* Lighter background for better contrast */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #AA8F66;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5A3A31;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.9); /* Increased opacity for better text visibility */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(170, 143, 102, 0.3); /* #AA8F66 with transparency */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass {
+  background: rgba(17, 4, 7, 0.9); /* Increased opacity for better text visibility */
+  border: 1px solid rgba(90, 58, 49, 0.3); /* #5A3A31 with transparency */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Card gradients */
+.sales-card {
+  background: linear-gradient(
+    135deg, 
+    #AA8F66 0%, 
+    #5A3A31 100%
+  );
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Adding text shadow for better readability */
+}
+
+.orders-card {
+  background: linear-gradient(
+    135deg, 
+    #5A3A31 0%, 
+    #110407 100%
+  );
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Adding text shadow for better readability */
+}
+
+.visitors-card {
+  background: linear-gradient(
+    135deg, 
+    #AA8F66 0%, 
+    #110407 100%
+  );
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Adding text shadow for better readability */
+}
+
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* CMDK styling */
+[cmdk-dialog] {
+  @apply fixed inset-0 z-50 flex items-start justify-center pt-[20vh] sm:pt-[25vh];
+}
+
+[cmdk-overlay] {
+  @apply fixed inset-0 bg-background/70 backdrop-blur-sm;
+}
+
+[cmdk-root] {
+  @apply w-full max-w-[640px] overflow-hidden rounded-xl border border-gallery-border bg-gallery-bg shadow-glass;
+}
+
+[cmdk-input] {
+  @apply border-none text-base py-6 outline-none placeholder:text-gallery-text/70 px-6 w-full text-gallery-text;
+}
+
+[cmdk-list] {
+  @apply max-h-[300px] overflow-y-auto px-3 pb-3;
+}
+
+[cmdk-item] {
+  @apply text-sm py-3 px-3 rounded-md hover:bg-gallery-beige cursor-pointer flex items-center gap-2 text-gallery-text hover:text-white;
+}
+
+[cmdk-group-heading] {
+  @apply text-xs font-medium text-gallery-text/70 px-3 py-2;
+}
+
+[cmdk-empty] {
+  @apply text-sm text-gallery-text/70 py-6 text-center;
+}
+
+/* Admin-specific text styles */
+.text-muted-admin {
+  color: hsl(var(--admin-text-muted));
+  font-weight: 500;
+}
+
+/* Cards with light backgrounds need darker text */
+.card .text-muted-foreground {
+  color: hsl(var(--admin-text-muted));
+}
+
+.bg-white .text-muted-foreground {
+  color: hsl(var(--admin-text-muted));
+}
+
+.bg-background .text-muted-foreground {
+  color: hsl(var(--admin-text-muted));
+}
+
+/* Improve badge and label contrast */
+.form-label, .data-table-label {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 500;
+}
